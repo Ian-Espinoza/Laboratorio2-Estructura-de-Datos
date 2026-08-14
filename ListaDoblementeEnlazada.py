@@ -177,16 +177,24 @@ class ListaDoblemente:
         return self.tamano
 
 if __name__ == "__main__":
+# Crear la lista doblemente enlazada
     lista = ListaDoblemente()
-    lista.insertarAlInicio(5)
-    lista.insertarAlInicio(10)
-    lista.insertarAlInicio(15)
-    lista.imprimirAdelante()  # Muestra: 15 -> 10 -> 5 -> None
-    lista.imprimirAtras()      # Muestra: 5 -> 10 -> 15 -> None
-    print("Cantidad de elementos en la lista:", lista.cantidadElementos())
-    print("¿La lista está vacía?", lista.listaVacia())
-    lista.eliminarAlFinal()
-    lista.imprimirAdelante()  # Muestra: 15 -> 10 -> None
-    lista.buscarElemento(10)  # Devuelve la posición del elemento 10
-    print("Posición del elemento 10:", lista.buscarElemento(10))
-    print("Posición del elemento 0:", lista.buscarElemento(0))   # Devuelve -1 porque el elemento no está en la lista
+    try:
+        with open("datos.txt", "r") as archivo:
+            for linea in archivo:
+                linea = linea.strip()
+                # Evitar líneas vacías
+                if linea != "":
+                    valor = int(linea)
+                    # Insertar el valor en la lista
+                    lista.insertarAlInicio(valor)
+                    lista.imprimirAdelante()
+                    print(f"Cantidad de elementos: {lista.cantidadElementos()}")
+
+    except FileNotFoundError:
+        print("Error: el archivo datos.txt no existe.")
+        exit()
+
+    except ValueError:
+        print("Error: el archivo contiene un dato que no es entero.")
+        exit()
