@@ -176,6 +176,30 @@ class ListaDoblemente:
     def cantidadElementos(self):
         return self.tamano
 
+    def display(self):
+        actual=self.head
+        while actual is not None:
+            print(actual.data,end="->")
+            actual=actual.next
+        print("None")
+
+    def eliminarEnPosicion(self, posicion):
+        if self.head is None:
+            print("La lista está vacía.")
+            return
+        if posicion == 0:
+            self.head = self.head.next
+            return
+        actual = self.head
+        contador = 0
+        while actual.next is not None and contador < posicion - 1:
+            actual = actual.next
+            contador += 1
+        if actual.next is None:
+            print("Posición fuera de rango.")
+            return
+        actual.next = actual.next.next
+
 if __name__ == "__main__":
 # Crear la lista doblemente enlazada
     lista = ListaDoblemente()
@@ -198,3 +222,4 @@ if __name__ == "__main__":
     except ValueError:
         print("Error: el archivo contiene un dato que no es entero.")
         exit()
+
