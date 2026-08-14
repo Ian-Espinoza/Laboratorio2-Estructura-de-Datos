@@ -176,12 +176,6 @@ class ListaDoblemente:
     def cantidadElementos(self):
         return self.tamano
 
-    def display(self):
-        actual=self.head
-        while actual is not None:
-            print(actual.data,end="->")
-            actual=actual.next
-        print("None")
 
     def eliminarEnPosicion(self, posicion):
         if self.head is None:
@@ -201,11 +195,11 @@ class ListaDoblemente:
         actual.next = actual.next.next
 
     def display(self):
-        actual=self.inicio #Se crea un nodo temporal para recorrer la lista
-        while actual:
-            print(actual.data, end=" -> ")
-            actual=actual.next #Se mueve al siguiente nodo/se recorre la lista
-        print("None") #Se imprime None al final de la lista para indicar que no hay más nodos
+            actual=self.head
+            while actual is not None:
+                print(actual.data,end="->")
+                actual=actual.next
+            print("None")
 
 if __name__ == "__main__":
 # Crear la lista doblemente enlazada
