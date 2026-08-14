@@ -300,7 +300,6 @@ if __name__ == "__main__":
                 print("Se reemplazó:", palabraAnterior, "por", nuevaPalabra)
                 sustitucionRealizada = True
 
-                # Si se modifica la lista, se debe volver a ordenar
                 ordenamientoRealizado = False
 
         elif opcion == "4":
@@ -354,3 +353,5 @@ if __name__ == "__main__":
 
         else:
             print("Opción inválida. Intente nuevamente.")
+
+#dfjdf
