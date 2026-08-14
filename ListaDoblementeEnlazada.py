@@ -42,7 +42,7 @@ class ListaDoblemente:
         for i in range(posicion):
             actual = actual.siguiente
 
-        # insertamos 'nuevoNodo' antes de 'actual'
+
         anterior = actual.anterior
         anterior.siguiente = nuevoNodo
         nuevoNodo.anterior = anterior
@@ -56,7 +56,6 @@ class ListaDoblemente:
             self.cabeza = nuevoNodo
             self.cola = nuevoNodo
         else:
-            # gracias a self.cola no hay que recorrer la lista: O(1)
             nuevoNodo.anterior = self.cola
             self.cola.siguiente = nuevoNodo
             self.cola = nuevoNodo
@@ -130,7 +129,6 @@ class ListaDoblemente:
         return -1
 
     def imprimirAdelante(self):
-        # recorrido normal: de cabeza a cola
         if self.listaVacia():
             print("La lista está vacía.")
             return
@@ -141,7 +139,6 @@ class ListaDoblemente:
         print("None")
 
     def imprimirAtras(self):
-        # recorrido inverso: de cola a cabeza (gracias a 'anterior')
         if self.listaVacia():
             print("La lista está vacía.")
             return
@@ -155,11 +152,9 @@ class ListaDoblemente:
         return self.tamano
 
     def eliminarEnPosicion(self, posicion):
-        # se utiliza la función que ya elimina en cualquier posición
         return self.eliminarAlMedio(posicion)
 
     def display(self):
-        # se corrigieron los nombres para usar cabeza, dato y siguiente
         actual = self.cabeza
         textoLista = ""
         while actual is not None:
@@ -169,12 +164,7 @@ class ListaDoblemente:
         print(textoLista)
         return textoLista
 
-    # ================================================================
-    # FUNCIONES NUEVAS SOLICITADAS EN EL LABORATORIO
-    # ================================================================
-
     def buscarNombre(self, nombre):
-        # guarda todas las posiciones en las que aparece el nombre
         posiciones = []
         actual = self.cabeza
         posicion = 0
@@ -242,6 +232,11 @@ if __name__ == "__main__":
 
     estudiante1 = input("Digite el nombre del primer estudiante: ")
     estudiante2 = input("Digite el nombre del segundo estudiante: ")
+
+    if estudiante2 != "":
+        lista.insertarAlInicio(estudiante2)
+    if estudiante1 != "":
+        lista.insertarAlInicio(estudiante1)
 
     palabraBuscar = ""
     posiciones = []
