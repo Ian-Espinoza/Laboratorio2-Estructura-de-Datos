@@ -200,6 +200,13 @@ class ListaDoblemente:
             return
         actual.next = actual.next.next
 
+    def display(self):
+        actual=self.inicio #Se crea un nodo temporal para recorrer la lista
+        while actual:
+            print(actual.data, end=" -> ")
+            actual=actual.next #Se mueve al siguiente nodo/se recorre la lista
+        print("None") #Se imprime None al final de la lista para indicar que no hay más nodos
+
 if __name__ == "__main__":
 # Crear la lista doblemente enlazada
     lista = ListaDoblemente()
@@ -222,4 +229,45 @@ if __name__ == "__main__":
     except ValueError:
         print("Error: el archivo contiene un dato que no es entero.")
         exit()
+
+
+lista.display()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
