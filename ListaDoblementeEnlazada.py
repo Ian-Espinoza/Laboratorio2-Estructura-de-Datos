@@ -240,64 +240,117 @@ if __name__ == "__main__":
         print("Error: el archivo datos.txt no existe.")
         exit()
 
-    # Se solicitan los nombres que deben aparecer en Reporte.txt
     estudiante1 = input("Digite el nombre del primer estudiante: ")
     estudiante2 = input("Digite el nombre del segundo estudiante: ")
 
-    # Buscar un nombre y mostrar su posición y cantidad de apariciones
-    palabraBuscar = input("\nDigite una palabra para buscar: ")
-    posiciones = lista.buscarNombre(palabraBuscar)
+    palabraBuscar = ""
+    posiciones = []
+    posicionReemplazar = -1
+    nuevaPalabra = ""
+    palabraAnterior = ""
+    listaAntesDeOrdenar = ""
+    listaOrdenada = ""
 
-    if len(posiciones) > 0:
-        print("La palabra está en la posición:", posiciones[0])
-    else:
-        print("La palabra no se encuentra en la lista.")
-    print("La palabra aparece", len(posiciones), "veces")
+    busquedaRealizada = False
+    sustitucionRealizada = False
+    ordenamientoRealizado = False
 
-    # Sustituir una palabra por medio de su posición
-    try:
-        posicionReemplazar = int(input("\nDigite posición a reemplazar: "))
-    except ValueError:
-        print("Error: debe digitar una posición numérica.")
-        exit()
+    opcion = ""
 
-    nuevaPalabra = input("Digite nueva palabra: ")
-    palabraAnterior = lista.sustituir(posicionReemplazar, nuevaPalabra)
+    while opcion != "0":
+        print("\n========================================")
+        print("     MENÚ - LISTA DOBLEMENTE ENLAZADA")
+        print("========================================")
+        print("1. Mostrar la lista")
+        print("2. Buscar un nombre")
+        print("3. Sustituir una palabra")
+        print("4. Ordenar la lista")
+        print("5. Generar Reporte.txt")
+        print("0. Salir")
 
-    if palabraAnterior is None:
-        exit()
+        opcion = input("Seleccione una opción: ")
 
-    print("Se reemplazó:", palabraAnterior, "por", nuevaPalabra)
+        if opcion == "1":
+            print("\nLista actual:")
+            lista.display()
 
-    # Guardar e imprimir la lista antes de ordenar
-    print("\nLista antes de ordenar:")
-    listaAntesDeOrdenar = lista.display()
+        elif opcion == "2":
+            palabraBuscar = input("Digite una palabra para buscar: ")
+            posiciones = lista.buscarNombre(palabraBuscar)
+            busquedaRealizada = True
 
-    # Ordenar e imprimir la lista
-    lista.ordenar()
-    print("\nLista después de ordenar:")
-    listaOrdenada = lista.display()
+            if len(posiciones) > 0:
+                print("La palabra está en la posición:", posiciones[0])
+            else:
+                print("La palabra no se encuentra en la lista.")
 
-    # Crear el archivo solicitado por el laboratorio
-    with open("Reporte.txt", "w", encoding="utf-8") as archivo:
-        archivo.write("========================================\n")
-        archivo.write("          REPORTE DE PALABRAS\n")
-        archivo.write("========================================\n\n")
-        archivo.write("Estudiantes: " + estudiante1 + " y " + estudiante2 + "\n\n")
-        archivo.write("Cantidad de palabras: " + str(lista.cantidadElementos()) + "\n\n")
-        archivo.write("Palabra buscada: " + palabraBuscar + "\n")
+            print("La palabra aparece", len(posiciones), "veces")
 
-        if len(posiciones) > 0:
-            archivo.write("La palabra está en la posición: " + str(posiciones[0]) + "\n")
+        elif opcion == "3":
+            try:
+                posicionReemplazar = int(input("Digite posición a reemplazar: "))
+            except ValueError:
+                print("Error: debe digitar una posición numérica.")
+                continue
+
+            nuevaPalabra = input("Digite nueva palabra: ")
+            palabraAnterior = lista.sustituir(posicionReemplazar, nuevaPalabra)
+
+            if palabraAnterior is not None:
+                print("Se reemplazó:", palabraAnterior, "por", nuevaPalabra)
+                sustitucionRealizada = True
+
+                # Si se modifica la lista, se debe volver a ordenar
+                ordenamientoRealizado = False
+
+        elif opcion == "4":
+            print("\nLista antes de ordenar:")
+            listaAntesDeOrdenar = lista.display()
+
+            lista.ordenar()
+
+            print("\nLista después de ordenar:")
+            listaOrdenada = lista.display()
+            ordenamientoRealizado = True
+
+        elif opcion == "5":
+            if not busquedaRealizada:
+                print("Primero debe buscar un nombre con la opción 2.")
+                continue
+
+            if not sustitucionRealizada:
+                print("Primero debe sustituir una palabra con la opción 3.")
+                continue
+
+            if not ordenamientoRealizado:
+                print("Primero debe ordenar la lista con la opción 4.")
+                continue
+
+            with open("Reporte.txt", "w", encoding="utf-8") as archivo:
+                archivo.write("========================================\n")
+                archivo.write("          REPORTE DE PALABRAS\n")
+                archivo.write("========================================\n\n")
+                archivo.write("Estudiantes: " + estudiante1 + " y " + estudiante2 + "\n\n")
+                archivo.write("Cantidad de palabras: " + str(lista.cantidadElementos()) + "\n\n")
+                archivo.write("Palabra buscada: " + palabraBuscar + "\n")
+
+                if len(posiciones) > 0:
+                    archivo.write("La palabra está en la posición: " + str(posiciones[0]) + "\n")
+                else:
+                    archivo.write("La palabra no se encuentra en la lista.\n")
+
+                archivo.write("La palabra aparece " + str(len(posiciones)) + " veces\n\n")
+                archivo.write("Posición reemplazada: " + str(posicionReemplazar) + "\n")
+                archivo.write("Se reemplazó: " + str(palabraAnterior) + " por " + nuevaPalabra + "\n\n")
+                archivo.write("Lista antes de ordenar:\n")
+                archivo.write(listaAntesDeOrdenar + "\n\n")
+                archivo.write("Lista después de ordenar:\n")
+                archivo.write(listaOrdenada + "\n")
+
+            print("El archivo Reporte.txt se creó correctamente.")
+
+        elif opcion == "0":
+            print("Programa finalizado.")
+
         else:
-            archivo.write("La palabra no se encuentra en la lista.\n")
-
-        archivo.write("La palabra aparece " + str(len(posiciones)) + " veces\n\n")
-        archivo.write("Posición reemplazada: " + str(posicionReemplazar) + "\n")
-        archivo.write("Se reemplazó: " + str(palabraAnterior) + " por " + nuevaPalabra + "\n\n")
-        archivo.write("Lista antes de ordenar:\n")
-        archivo.write(listaAntesDeOrdenar + "\n\n")
-        archivo.write("Lista después de ordenar:\n")
-        archivo.write(listaOrdenada + "\n")
-
-    print("\nEl archivo Reporte.txt se creó correctamente.")
+            print("Opción inválida. Intente nuevamente.")

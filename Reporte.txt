@@ -1,0 +1,20 @@
+========================================
+          REPORTE DE PALABRAS
+========================================
+
+Estudiantes: Bryan y Ian
+
+Cantidad de palabras: 100
+
+Palabra buscada: Ian
+La palabra no se encuentra en la lista.
+La palabra aparece 0 veces
+
+Posición reemplazada: 99
+Se reemplazó: Ana por AnaCambio
+
+Lista antes de ordenar:
+Lidia <-> Esteban <-> Amparo <-> Bruno <-> Rebeca <-> Simón <-> Fátima <-> Mauricio <-> Inés <-> Héctor <-> Alejandra <-> Cristóbal <-> Raquel <-> Adrián <-> Clara <-> Felipe <-> Marina <-> Rodrigo <-> Eva <-> Sebastián <-> Ariana <-> Gerardo <-> Carla <-> Rubén <-> Natalia <-> Enrique <-> Mónica <-> David <-> Paola <-> Ángel <-> Sara <-> Mateo <-> Irene <-> Gonzalo <-> Nuria <-> Samuel <-> Esther <-> Víctor <-> Mariana <-> Tomás <-> Daniela <-> Ramón <-> Noelia <-> Emilio <-> Carolina <-> Iván <-> Alicia <-> Óscar <-> Julia <-> Marco <-> Lorena <-> Hugo <-> Verónica <-> Eduardo <-> Rosa <-> Andrés <-> Teresa <-> Álvaro <-> Silvia <-> Pablo <-> Adriana <-> Raúl <-> Claudia <-> Roberto <-> Marta <-> Antonio <-> Beatriz <-> Javier <-> Cristina <-> Manuel <-> Natalia <-> Sergio <-> Elena <-> Francisco <-> Camila <-> Martín <-> Paula <-> Alejandro <-> Gabriela <-> Diego <-> Valentina <-> Ricardo <-> Isabel <-> Fernando <-> Lucía <-> Jorge <-> Patricia <-> Daniel <-> Andrea <-> Miguel <-> Carmen <-> Pedro <-> Laura <-> Juan <-> Sofía <-> Luis <-> José <-> María <-> Carlos <-> AnaCambio <-> None
+
+Lista después de ordenar:
+Adriana <-> Adrián <-> Alejandra <-> Alejandro <-> Alicia <-> Amparo <-> AnaCambio <-> Andrea <-> Andrés <-> Antonio <-> Ariana <-> Beatriz <-> Bruno <-> Camila <-> Carla <-> Carlos <-> Carmen <-> Carolina <-> Clara <-> Claudia <-> Cristina <-> Cristóbal <-> Daniel <-> Daniela <-> David <-> Diego <-> Eduardo <-> Elena <-> Emilio <-> Enrique <-> Esteban <-> Esther <-> Eva <-> Felipe <-> Fernando <-> Francisco <-> Fátima <-> Gabriela <-> Gerardo <-> Gonzalo <-> Hugo <-> Héctor <-> Inés <-> Irene <-> Isabel <-> Iván <-> Javier <-> Jorge <-> José <-> Juan <-> Julia <-> Laura <-> Lidia <-> Lorena <-> Lucía <-> Luis <-> Manuel <-> Marco <-> Mariana <-> Marina <-> Marta <-> Martín <-> María <-> Mateo <-> Mauricio <-> Miguel <-> Mónica <-> Natalia <-> Natalia <-> Noelia <-> Nuria <-> Pablo <-> Paola <-> Patricia <-> Paula <-> Pedro <-> Ramón <-> Raquel <-> Raúl <-> Rebeca <-> Ricardo <-> Roberto <-> Rodrigo <-> Rosa <-> Rubén <-> Samuel <-> Sara <-> Sebastián <-> Sergio <-> Silvia <-> Simón <-> Sofía <-> Teresa <-> Tomás <-> Valentina <-> Verónica <-> Víctor <-> Álvaro <-> Ángel <-> Óscar <-> None
